@@ -1,0 +1,27 @@
+package com.rules
+
+import com.harry.droolsdemo.model.Product
+import java.util.ArrayList;
+import java.util.List;
+global java.util.List listRules;
+
+rule diamondRule
+no-loop true
+lock-on-active true
+agenda-group "product"
+    when
+        $productObject : Product(type == Product.DIAMOND,message:"钻石")
+    then
+        System.out.println(message);
+        listRules.add(message);
+        $productObject.setDiscount(15);
+    end
+rule goldRule
+agenda-group "product"
+    when
+        $productObject: Product(type == Product.GOLD,message:"黄金")
+    then
+        System.out.println(message);
+        listRules.add(message);
+        $productObject.setDiscount(25);
+    end

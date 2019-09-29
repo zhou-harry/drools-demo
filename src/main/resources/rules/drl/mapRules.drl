@@ -1,0 +1,30 @@
+package com.rules
+
+import java.util.Map
+import java.util.ArrayList
+import java.util.List
+import com.harry.droolsdemo.model.RuleModel
+
+
+
+rule r1
+no-loop true
+lock-on-active true
+agenda-group "map"
+    when
+        $rm : RuleModel(c["companyCode"]=="tplhk"||check(c["companyCode"]))
+    then
+        modify($rm){
+            setS( true ),
+            setR("companyCode","公司代码没问题")
+        }
+        System.out.println(msg("公司代码没问题"));
+end
+
+function Boolean check(String v1){
+    Boolean r=v1.equals("picc");
+    return r;
+}
+function String msg(String m){
+    return "MESSAGE: " + m + "!";
+}
