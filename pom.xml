@@ -17,7 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<drools.version>7.18.0.Final</drools.version>
-		<fastjson.version>1.2.47</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<swagger.version>2.9.2</swagger.version>
 	</properties>
 
